@@ -1,3 +1,7 @@
+" Initialize pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " General things
 set number              " show line numbers
 set mouse=a             " enable the mouse
