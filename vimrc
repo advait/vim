@@ -35,6 +35,10 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" Wrap related preferences
+set formatoptions=l
+set lbr
+
 " Hidden characters
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
@@ -57,7 +61,7 @@ set t_vb=
 set ruler
 set showmatch           " Show matching parentheses
 set scrolloff=10        " scroll before reaching the edge of the page
-set guifont="DejaVu\ Sans\ Mono\ 10"
+set guifont=DejaVu\ Sans\ Mono:h12
 
 " Things for searching
 set ignorecase
@@ -96,7 +100,11 @@ map S s$
 au BufNewFile *.html 0r ~/.vim/templates/template.html
 
 " Automatically change directory when opening file
-set autochdir
+if exists('+autochdir')
+    set autochdir
+else
+    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
 set nocp
 
 " Plugin Mapping
