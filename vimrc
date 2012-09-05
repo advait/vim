@@ -12,7 +12,8 @@ set undolevels=1000     " use many mucho levels of undo
 
 " Color scheme
 if &t_Co >= 256 || has("gui_running")
-   colorscheme molokai     " color scheme
+   "colorscheme molokai     " color scheme
+   colorscheme Tomorrow-Night
 endif
 if &t_Co > 2 || has("gui_running")
    " switch syntax highlighting on, when the terminal has colors
